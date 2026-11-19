@@ -6,13 +6,13 @@ A native Android application built with **Kotlin**, **Jetpack Compose**, **Camer
 
 A ready-to-install APK is included directly in this repository:
 
-- **[`releases/AeroHand-v1.1.0.apk`](releases/AeroHand-v1.1.0.apk)**
+- **[`releases/AeroHand-v1.2.0.apk`](releases/AeroHand-v1.2.0.apk)**
 
 ### Install on an Android Device
-- **Direct sideload**: Download `releases/AeroHand-v1.1.0.apk` on your Android phone (Android 8.0 / API 26+) and open it to install.
+- **Direct sideload**: Download `releases/AeroHand-v1.2.0.apk` on your Android phone (Android 8.0 / API 26+) and open it to install.
 - **Via ADB**:
   ```bash
-  adb install -r releases/AeroHand-v1.1.0.apk
+  adb install -r releases/AeroHand-v1.2.0.apk
   ```
 
 ---
@@ -73,7 +73,7 @@ A ready-to-install APK is included directly in this repository:
 │               ├── main/                     # MainScreen, ViewModel, HandOverlay
 │               └── theme/                    # Material 3 Compose theme
 └── releases/
-    └── AeroHand-v1.1.0.apk                   # Prebuilt installable APK
+    └── AeroHand-v1.2.0.apk                   # Prebuilt installable APK
 ```
 
 ---

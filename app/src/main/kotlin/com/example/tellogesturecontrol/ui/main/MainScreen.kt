@@ -222,12 +222,20 @@ fun MainScreen(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    Icon(
-                        imageVector = Icons.Default.PanTool,
-                        contentDescription = null,
-                        tint = if (detection.rawGestureId >= 0) Color(0xFF00E676) else Color.Gray,
-                        modifier = Modifier.size(18.dp)
-                    )
+                    val activeEmoji = gestureEmoji(detection.rawGestureId)
+                    if (activeEmoji.isNotEmpty()) {
+                        Text(
+                            text = activeEmoji,
+                            fontSize = 18.sp
+                        )
+                    } else {
+                        Icon(
+                            imageVector = Icons.Default.PanTool,
+                            contentDescription = null,
+                            tint = Color.Gray,
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
                     val handPrefix = if (detection.handedness.isNotEmpty()) "${detection.handedness}: " else ""
                     val confText = if (detection.rawGestureId >= 0) {
                         " (${(detection.confidence * 100).toInt()}%)"
@@ -404,17 +412,23 @@ fun MainScreen(
                         )
                     }
 
-                    // Supported Gestures Legend
+                    // Supported Gestures Legend with official hand gesture emojis
                     FlowRow(
                         horizontalArrangement = Arrangement.spacedBy(6.dp),
                         verticalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
                         viewModel.gestureLabels.forEachIndexed { idx, label ->
                             val isActive = detection.rawGestureId == idx
+                            val emoji = gestureEmoji(idx)
                             FilterChip(
                                 selected = isActive,
                                 onClick = {},
-                                label = { Text("$idx: $label", fontSize = 11.sp) }
+                                label = {
+                                    Text(
+                                        text = if (emoji.isNotEmpty()) "$emoji $label" else "$idx: $label",
+                                        fontSize = 12.sp
+                                    )
+                                }
                             )
                         }
                     }
@@ -428,6 +442,18 @@ fun MainScreen(
             }
         }
     }
+}
+
+private fun gestureEmoji(gestureId: Int): String = when (gestureId) {
+    0 -> "✋" // Forward — Open palm
+    1 -> "✊" // Stop — Upright fist
+    2 -> "👆" // Up — Index pointing up
+    3 -> "👌" // Land — OK sign
+    4 -> "👇" // Down — Index pointing down
+    5 -> "👊" // Back — Forward fist
+    6 -> "🤛" // Left — Fist with thumb left
+    7 -> "🤜" // Right — Fist with thumb right
+    else -> ""
 }
 
 @Composable
