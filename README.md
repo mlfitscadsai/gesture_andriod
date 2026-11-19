@@ -1,4 +1,4 @@
-# DJI Tello Hand Gesture Control — Android App
+# AeroHand — DJI Tello Hand Gesture Control (Android)
 
 A native Android application built with **Kotlin**, **Jetpack Compose**, **CameraX**, **MediaPipe HandLandmarker**, and **TensorFlow Lite** that lets you connect to a **DJI Tello** drone over Wi-Fi and fly it in real time using hand gestures.
 
@@ -6,13 +6,13 @@ A native Android application built with **Kotlin**, **Jetpack Compose**, **Camer
 
 A ready-to-install APK is included directly in this repository:
 
-- **[`releases/tello-gesture-android-v1.0.0.apk`](releases/tello-gesture-android-v1.0.0.apk)**
+- **[`releases/AeroHand-v1.1.0.apk`](releases/AeroHand-v1.1.0.apk)**
 
 ### Install on an Android Device
-- **Direct sideload**: Download `releases/tello-gesture-android-v1.0.0.apk` on your Android phone (Android 8.0 / API 26+) and open it to install.
+- **Direct sideload**: Download `releases/AeroHand-v1.1.0.apk` on your Android phone (Android 8.0 / API 26+) and open it to install.
 - **Via ADB**:
   ```bash
-  adb install -r releases/tello-gesture-android-v1.0.0.apk
+  adb install -r releases/AeroHand-v1.1.0.apk
   ```
 
 ---
@@ -43,7 +43,7 @@ A ready-to-install APK is included directly in this repository:
 ## How to Fly
 1. Power on your **DJI Tello** drone and wait for the status LED to blink yellow.
 2. Connect your Android phone to the **`TELLO-XXXXXX`** Wi-Fi network (accept "Keep Wi-Fi without internet" if prompted).
-3. Open **Tello Gesture Control**, grant Camera permission, and tap **Connect**.
+3. Open **AeroHand**, grant Camera permission, and tap **Connect**.
 4. Tap **Takeoff**, switch to **Gesture Mode**, and steer using the 8 hand gestures above.
 5. Show the **OK Sign (👌)** or tap **Land / Emergency** anytime to land safely.
 
@@ -73,7 +73,7 @@ A ready-to-install APK is included directly in this repository:
 │               ├── main/                     # MainScreen, ViewModel, HandOverlay
 │               └── theme/                    # Material 3 Compose theme
 └── releases/
-    └── tello-gesture-android-v1.0.0.apk      # Prebuilt installable APK
+    └── AeroHand-v1.1.0.apk                   # Prebuilt installable APK
 ```
 
 ---
